@@ -1,13 +1,13 @@
 package com.cryptominer.ma
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 
-class MainActivity : ComponentActivity() {
+class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +26,13 @@ class MainActivity : ComponentActivity() {
 
         val startButton = Button(this).apply {
             text = "بدء التعدين"
+
             setOnClickListener {
-                val intent = Intent(this@MainActivity, MiningService::class.java)
+                val intent = Intent(
+                    this@MainActivity,
+                    MiningService::class.java
+                )
+
                 startForegroundService(intent)
                 status.text = "الحالة: يعمل"
             }
@@ -35,8 +40,13 @@ class MainActivity : ComponentActivity() {
 
         val stopButton = Button(this).apply {
             text = "إيقاف التعدين"
+
             setOnClickListener {
-                val intent = Intent(this@MainActivity, MiningService::class.java)
+                val intent = Intent(
+                    this@MainActivity,
+                    MiningService::class.java
+                )
+
                 stopService(intent)
                 status.text = "الحالة: متوقف"
             }
