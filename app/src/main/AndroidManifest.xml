@@ -24,6 +24,11 @@
             android:name=".MiningService"
             android:exported="false"
             android:foregroundServiceType="specialUse"/>
+        <property
+        android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+        android:value="cryptocurrency mining service" />
+
+</service>
 
     </application>
 </manifest>
